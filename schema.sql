@@ -25,6 +25,7 @@ CREATE TABLE products (
     name VARCHAR(255) NOT NULL,                 -- Product name (e.g., "Phone Charger")
     description TEXT,                           -- Extra info about the product
     is_bundle BOOLEAN DEFAULT false,            -- True if this product is made of other products
+    stock_threshold INTEGER DEFAULT 10,         -- NEW: For low-stock alerts (varies by product type)
     created_at TIMESTAMPTZ DEFAULT NOW()        -- When the product was added
 );
 
@@ -35,7 +36,6 @@ CREATE TABLE suppliers (
     contact_info TEXT,                          -- Phone or email to reach them
     created_at TIMESTAMPTZ DEFAULT NOW()        -- When they were added
 );
-
 
 -- Join Tables (for relationships) --
 
